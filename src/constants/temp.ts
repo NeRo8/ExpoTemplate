@@ -1,16 +1,14 @@
-import { ImageSource } from 'expo-image';
-
 import { images } from '@constants/images';
 
 type Item = {
   id: number;
-  image: ImageSource;
+  image?: any;
   title: string;
 };
 
 type FilterItem = {
   id: number;
-  image: ImageSource;
+  image?: any;
   title: string;
   subCategories: Item[];
 };
