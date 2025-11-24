@@ -1,3 +1,5 @@
+import { fonts } from '@constants/fonts';
+
 const colors = {
   background: '#ffffff',
   paragraph: '#191f21',
@@ -5,7 +7,7 @@ const colors = {
   secondary: '#d28c64',
   borders: '#57585b',
   light: '#d3d3d3',
-};
+} as const;
 
 const margins = {
   sm: 8,
@@ -33,16 +35,6 @@ const borderRadius = {
   xxl: 32,
   xxxl: 40,
 } as const;
-
-const fonts = {
-  light: 'SourceCodePro-Light',
-  regular: 'SourceCodePro-Regular',
-  medium: 'SourceCodePro-Medium',
-  semiBold: 'SourceCodePro-SemiBold',
-  bold: 'SourceCodePro-Bold',
-  black: 'SourceCodePro-Black',
-  extraBold: 'SourceCodePro-ExtraBold',
-};
 
 const fontSizes = {
   xs: 12,
