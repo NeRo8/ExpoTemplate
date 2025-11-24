@@ -4,13 +4,13 @@ import { images } from '@constants/images';
 
 type Item = {
   id: number;
-  image?: ImageSource;
+  image: ImageSource;
   title: string;
 };
 
 type FilterItem = {
   id: number;
-  image: unknown;
+  image: ImageSource;
   title: string;
   subCategories: Item[];
 };
