@@ -1,8 +1,10 @@
+import { ImageSource } from 'expo-image';
+
 import { images } from '@constants/images';
 
 type Item = {
   id: number;
-  image?: unknown;
+  image?: ImageSource;
   title: string;
 };
 
