@@ -28,7 +28,15 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen
-          name="search-modal"
+          name="(modals)/search-modal"
+          options={{
+            presentation: 'modal',
+            animation: 'slide_from_bottom',
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="(modals)/products-modal"
           options={{
             presentation: 'modal',
             animation: 'slide_from_bottom',

@@ -1,4 +1,4 @@
-import { MainScreenPage } from '@screens/MainScreen';
+import { MainScreenPage } from '@screens/MainScreenPage';
 
 export default function MainScreen() {
   return <MainScreenPage />;
