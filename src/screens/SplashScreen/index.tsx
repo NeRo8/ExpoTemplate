@@ -1,14 +1,18 @@
+import { useState } from 'react';
+
 import { ScrollView } from 'react-native';
 
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import { CustomButton } from '@components/buttons/CustomButton';
 import { Divider } from '@components/dividers/Divider';
+import { CustomCheckbox } from '@components/pickers/CustomCheckbox';
 import { CustomText } from '@components/textes/CustomText';
 
 const noop = () => {};
 
 export const SplashScreenPage = () => {
+  const [isChecked, setIsChecked] = useState(false);
   const { styles } = useStyles(stylesheet);
 
   return (
@@ -28,6 +32,15 @@ export const SplashScreenPage = () => {
 
       <CustomButton type="primary" onPress={noop} title="Primary Button" />
       <CustomButton type="outline" onPress={noop} title="Outline Button" />
+
+      <Divider />
+
+      <CustomCheckbox value={isChecked} onValueChange={setIsChecked} />
+      <CustomCheckbox
+        label="Checkbox"
+        value={isChecked}
+        onValueChange={setIsChecked}
+      />
     </ScrollView>
   );
 };
