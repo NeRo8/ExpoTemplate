@@ -1,54 +1,29 @@
-import { useState } from 'react';
-
-import { ScrollView } from 'react-native';
-
+import { Image } from 'expo-image';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
-import { CustomButton } from '@components/buttons/CustomButton';
-import { Divider } from '@components/dividers/Divider';
-import { CustomCheckbox } from '@components/pickers/CustomCheckbox';
-import { CustomText } from '@components/textes/CustomText';
-
-const noop = () => {};
-
 export const SplashScreenPage = () => {
-  const [isChecked, setIsChecked] = useState(false);
   const { styles } = useStyles(stylesheet);
 
   return (
-    <ScrollView contentContainerStyle={styles.pageContentContainerStyle}>
-      <Divider />
-      <CustomText type="h1">SplashScreen</CustomText>
-      <CustomText type="h2">SplashScreen</CustomText>
-      <CustomText type="h3">SplashScreen</CustomText>
-      <CustomText type="h4">SplashScreen</CustomText>
-      <CustomText type="h5">SplashScreen</CustomText>
-      <CustomText type="h6">SplashScreen</CustomText>
-      <CustomText type="body">SplashScreen</CustomText>
-      <CustomText type="caption">SplashScreen</CustomText>
-      <CustomText type="label">SplashScreen</CustomText>
-
-      <Divider />
-
-      <CustomButton type="primary" onPress={noop} title="Primary Button" />
-      <CustomButton type="outline" onPress={noop} title="Outline Button" />
-
-      <Divider />
-
-      <CustomCheckbox value={isChecked} onValueChange={setIsChecked} />
-      <CustomCheckbox
-        label="Checkbox"
-        value={isChecked}
-        onValueChange={setIsChecked}
+    <SafeAreaView style={styles.containerStyle}>
+      <Image
+        contentFit="contain"
+        source={require('@assets/icons/logo.svg')}
+        style={styles.logoStyle}
       />
-    </ScrollView>
+    </SafeAreaView>
   );
 };
 
 const stylesheet = createStyleSheet({
-  pageContentContainerStyle: {
-    flexGrow: 1,
-    padding: 24,
-    gap: 16,
+  containerStyle: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  logoStyle: {
+    width: 200,
+    height: 200,
   },
 });

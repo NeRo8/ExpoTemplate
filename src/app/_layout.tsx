@@ -1,15 +1,15 @@
-import { Stack } from 'expo-router';
-
 import '@themes';
-import { fonts } from '@constants/fonts';
+
+import { Stack } from 'expo-router';
+import { useStyles } from 'react-native-unistyles';
 
 export default function RootLayout() {
+  const { theme } = useStyles();
   return (
     <Stack
       screenOptions={{
-        headerShown: true,
-        title: 'Expo Template',
-        headerTitleStyle: { fontFamily: fonts.regular },
+        headerShown: false,
+        contentStyle: { backgroundColor: theme.colors.background },
       }}
     />
   );
