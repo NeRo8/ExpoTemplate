@@ -1,37 +1,25 @@
-import { useState } from 'react';
-
 import { FlatList, View } from 'react-native';
 
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import { SearchInput } from '@components/inputs/SearchInput';
-import {
-  SegmentControl,
-  SegmentItem,
-} from '@components/pickers/SegmentControll';
+import { SegmentControl } from '@components/pickers/SegmentControll';
 import { CustomText } from '@components/textes/CustomText';
 
+import { useSearch } from './hooks/useSearch.hook';
 import { ProductItem } from './widgets/ProductItem';
-
-const data: SegmentItem[] = [
-  { id: 'rent', title: 'Rent' },
-  { id: 'buy', title: 'Buy' },
-];
 
 const renderItem = (item: any) => <ProductItem {...item} />;
 
 export const SearchScreenModal = () => {
   const { styles } = useStyles(stylesheet);
 
-  const [activeId, setActiveId] = useState('rent');
-  const [query, setQuery] = useState('');
-  const [results, _setResults] = useState([]);
+  const { activeId, query, results, data, setQuery, setActiveId } = useSearch();
 
   return (
     <View style={styles.modalContainerStyle}>
       <SegmentControl data={data} activeId={activeId} onPress={setActiveId} />
       <SearchInput value={query} onChangeText={setQuery} />
-
       <FlatList
         data={[]}
         renderItem={renderItem}
