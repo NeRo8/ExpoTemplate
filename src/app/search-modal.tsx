@@ -1,11 +1,5 @@
-import { View } from 'react-native';
-
-import { CustomText } from '@components/textes/CustomText';
+import { SearchScreenModal } from '@screens/(modals)/SearchScreenModal';
 
 export default function SearchModal() {
-  return (
-    <View>
-      <CustomText>Search Modal</CustomText>
-    </View>
-  );
+  return <SearchScreenModal />;
 }

@@ -2,17 +2,19 @@ import { useEffect } from 'react';
 
 import { View } from 'react-native';
 
+import { useRouter } from 'expo-router';
 import { useVideoPlayer, VideoView } from 'expo-video';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
+import { SearchInput } from '@components/inputs/SearchInput';
 import { CustomText } from '@components/textes/CustomText';
 
 import { videos } from '@constants/videos';
 
-import { SearchInput } from './SearchInput';
-
 export const Header = () => {
   const { styles } = useStyles(stylesheet);
+
+  const router = useRouter();
 
   const player = useVideoPlayer(videos.desertBackground, (player) => {
     player.loop = true;
@@ -21,6 +23,10 @@ export const Header = () => {
   useEffect(() => {
     player.play();
   }, [player]);
+
+  const handleFocus = () => {
+    router.push('/search-modal');
+  };
 
   return (
     <View>
@@ -36,7 +42,10 @@ export const Header = () => {
           GATE TO DEVELOPMENT
         </CustomText>
       </CustomText>
-      <SearchInput />
+      <SearchInput
+        onFocus={handleFocus}
+        inputContainerStyle={styles.inputContainerStyle}
+      />
     </View>
   );
 };
@@ -60,5 +69,12 @@ const stylesheet = createStyleSheet((theme) => ({
     fontWeight: 'bold',
     fontSize: 24,
     color: theme.colors.white,
+  },
+  inputContainerStyle: {
+    position: 'absolute',
+    zIndex: 100,
+    bottom: theme.paddings.md,
+    left: theme.paddings.md,
+    right: theme.paddings.md,
   },
 }));

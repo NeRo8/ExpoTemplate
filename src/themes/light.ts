@@ -5,7 +5,7 @@ const colors = {
   paragraph: '#191f21',
   primary: '#ed1c24',
   secondary: '#d28c64',
-  borders: '#f0f3f4',
+  borders: '#d0d0d0',
   light: '#d3d3d3',
   caption: '#ffffff',
   label: '#57585b',
@@ -16,6 +16,8 @@ const colors = {
 } as const;
 
 const margins = {
+  xxs: 2,
+  xs: 4,
   sm: 8,
   md: 16,
   lg: 32,
@@ -25,6 +27,8 @@ const margins = {
 } as const;
 
 const paddings = {
+  xxs: 2,
+  xs: 4,
   sm: 8,
   md: 16,
   lg: 32,

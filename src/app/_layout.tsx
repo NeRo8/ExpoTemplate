@@ -32,7 +32,7 @@ export default function RootLayout() {
           options={{
             presentation: 'modal',
             animation: 'slide_from_bottom',
-            headerTitle: 'Search',
+            headerShown: false,
           }}
         />
       </Stack>
