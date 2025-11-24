@@ -54,7 +54,8 @@
             "./src/assets/fonts/SourceCodePro-ExtraBold.ttf"
           ]
         }
-      ]
+      ],
+      "expo-video"
     ],
     "experiments": {
       "typedRoutes": true,

@@ -2,10 +2,10 @@ import { View } from 'react-native';
 
 import { CustomText } from '@components/textes/CustomText';
 
-export const ResetPasswordPage = () => {
+export default function SearchModal() {
   return (
     <View>
-      <CustomText>Reset Password</CustomText>
+      <CustomText>Search Modal</CustomText>
     </View>
   );
-};
+}

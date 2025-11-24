@@ -1,15 +1,18 @@
 import { fonts } from '@constants/fonts';
 
 const colors = {
-  background: '#ffffff',
+  background: '#f2f2f2',
   paragraph: '#191f21',
   primary: '#ed1c24',
   secondary: '#d28c64',
-  borders: '#57585b',
+  borders: '#f0f3f4',
   light: '#d3d3d3',
   caption: '#ffffff',
   label: '#57585b',
   outline: '#ffffff',
+  inputBackground: '#ffffff',
+  placeholder: '#6f7e83',
+  white: '#ffffff',
 } as const;
 
 const margins = {
