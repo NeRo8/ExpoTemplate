@@ -23,6 +23,7 @@ module.exports = defineConfig([
       ],
       'react-native/no-inline-styles': 'warn',
       '@typescript-eslint/no-empty-object-type': 'off',
+      'react/jsx-no-bind': 'warn',
     },
   },
   {

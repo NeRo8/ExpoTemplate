@@ -7,6 +7,9 @@ const colors = {
   secondary: '#d28c64',
   borders: '#57585b',
   light: '#d3d3d3',
+  caption: '#ffffff',
+  label: '#57585b',
+  outline: '#ffffff',
 } as const;
 
 const margins = {
