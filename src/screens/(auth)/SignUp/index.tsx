@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 
-import { CustomText } from '@components/textes/RText';
+import { CustomText } from '@components/textes/CustomText';
 
 export const SignUpPage = () => {
   return (

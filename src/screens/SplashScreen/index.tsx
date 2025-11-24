@@ -2,7 +2,7 @@ import { View } from 'react-native';
 
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
-import { CustomText } from '@components/textes/RText';
+import { CustomText } from '@components/textes/CustomText';
 
 export const SplashScreenPage = () => {
   const { styles } = useStyles(stylesheet);

@@ -13,12 +13,16 @@ type TextType =
   | 'caption'
   | 'label';
 
-interface RTextProps extends TextProps {
-  type: TextType;
+interface CustomTextProps extends TextProps {
+  type?: TextType;
 }
 
-export const CustomText = ({ children, ...props }: RTextProps) => {
-  const { styles } = useStyles(stylesheet, { type: props.type });
+export const CustomText = ({
+  children,
+  type = 'body',
+  ...props
+}: CustomTextProps) => {
+  const { styles } = useStyles(stylesheet, { type });
   return (
     <Text {...props} style={[styles.textStyle, props.style]}>
       {children}
