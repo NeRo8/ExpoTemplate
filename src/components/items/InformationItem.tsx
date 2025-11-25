@@ -31,6 +31,7 @@ const stylesheet = createStyleSheet((theme) => ({
   informationTitleStyle: {
     fontWeight: theme.fontWeights.bold,
     fontSize: theme.fontSizes.md,
+    color: theme.colors.primary,
   },
   informationTextStyle: {
     fontSize: theme.fontSizes.xs,

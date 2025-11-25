@@ -1,11 +1,12 @@
-import { View } from 'react-native';
+import { InformationList } from '@components/containers/InformationContainer';
+import { ScrollContainer } from '@components/containers/ScrollContainer';
 
-import { CustomText } from '@components/textes/CustomText';
+import { TRAINING_INFORMATION } from '@constants/textes';
 
 export const TrainingScreen = () => {
   return (
-    <View>
-      <CustomText>Training Screen</CustomText>
-    </View>
+    <ScrollContainer>
+      <InformationList data={TRAINING_INFORMATION} />
+    </ScrollContainer>
   );
 };

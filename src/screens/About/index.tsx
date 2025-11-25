@@ -1,31 +1,16 @@
-import { ScrollView } from 'react-native';
+import { InformationList } from '@components/containers/InformationContainer';
+import { ScrollContainer } from '@components/containers/ScrollContainer';
 
-import { createStyleSheet, useStyles } from 'react-native-unistyles';
-
-import { InformationItem } from '@components/items/InformationItem';
-
-import { ABOUT_INFORMATION } from '@constants/about';
+import { ABOUT_INFORMATION } from '@constants/textes';
 
 import { ContactUsForm } from './widget/ContactUsForm';
 
 export const AboutScreen = () => {
-  const { styles } = useStyles(stylesheet);
   return (
-    <ScrollView contentContainerStyle={styles.screenContentContainerStyle}>
+    <ScrollContainer>
       <ContactUsForm />
 
-      {ABOUT_INFORMATION.map((item) => (
-        <InformationItem key={item.id} title={item.title} text={item.text} />
-      ))}
-    </ScrollView>
+      <InformationList data={ABOUT_INFORMATION} />
+    </ScrollContainer>
   );
 };
-
-const stylesheet = createStyleSheet((theme) => ({
-  screenContentContainerStyle: {
-    flexGrow: 1,
-    padding: theme.paddings.md,
-    gap: theme.margins.md,
-    backgroundColor: theme.colors.background,
-  },
-}));
