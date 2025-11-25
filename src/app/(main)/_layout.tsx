@@ -1,3 +1,4 @@
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { Tabs } from 'expo-router';
 import { useStyles } from 'react-native-unistyles';
 
@@ -6,7 +7,6 @@ export default function MainLayout() {
   return (
     <Tabs
       screenOptions={{
-        headerShown: false,
         sceneStyle: { backgroundColor: theme.colors.background },
         headerStyle: {
           backgroundColor: theme.colors.primary,
@@ -19,14 +19,28 @@ export default function MainLayout() {
         headerRightContainerStyle: {
           paddingRight: theme.paddings.md,
         },
+        tabBarActiveTintColor: theme.colors.primary,
+        tabBarInactiveTintColor: theme.colors.placeholder,
       }}
     >
-      <Tabs.Screen name="index" options={{ title: 'Home' }} />
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: 'Explore',
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="compass-outline" color={color} size={size} />
+          ),
+        }}
+      />
       <Tabs.Screen
         name="products"
         options={{
           title: 'Products',
           headerShown: true,
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="layers-outline" color={color} size={size} />
+          ),
         }}
       />
       <Tabs.Screen
@@ -37,9 +51,20 @@ export default function MainLayout() {
           headerStyle: {
             backgroundColor: theme.colors.primary,
           },
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="settings-outline" color={color} size={size} />
+          ),
         }}
       />
-      <Tabs.Screen name="about" options={{ title: 'About' }} />
+      <Tabs.Screen
+        name="about"
+        options={{
+          title: 'About',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="information-outline" color={color} size={size} />
+          ),
+        }}
+      />
     </Tabs>
   );
 }

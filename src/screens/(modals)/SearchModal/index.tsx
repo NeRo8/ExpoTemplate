@@ -11,7 +11,7 @@ import { ProductItem } from './widgets/ProductItem';
 
 const renderItem = (item: any) => <ProductItem {...item} />;
 
-export const SearchScreenModal = () => {
+export const SearchModal = () => {
   const { styles } = useStyles(stylesheet);
 
   const { activeId, query, results, data, setQuery, setActiveId } = useSearch();

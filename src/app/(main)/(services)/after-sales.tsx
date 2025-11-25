@@ -1,5 +1,5 @@
-import { AfterSalesScreenPage } from '@screens/AfterSalesScreenPage';
+import { AfterSalesScreen } from '@screens/AfterSales';
 
-export default function AfterSalesScreen() {
-  return <AfterSalesScreenPage />;
+export default function AfterSalesPage() {
+  return <AfterSalesScreen />;
 }

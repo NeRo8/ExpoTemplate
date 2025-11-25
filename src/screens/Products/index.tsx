@@ -2,14 +2,14 @@ import { ScrollView } from 'react-native';
 
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
-export default function ProductsScreenPage() {
+export const ProductsScreen = () => {
   const { styles } = useStyles(stylesheet);
   return (
     <ScrollView
       contentContainerStyle={styles.contentContainerStyle}
     ></ScrollView>
   );
-}
+};
 
 const stylesheet = createStyleSheet((theme) => ({
   contentContainerStyle: {

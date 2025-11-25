@@ -1,5 +1,5 @@
-import { SearchScreenModal } from '@screens/(modals)/SearchScreenModal';
+import { SearchModal } from '@screens/(modals)/SearchModal';
 
-export default function SearchModal() {
-  return <SearchScreenModal />;
+export default function SearchModalPage() {
+  return <SearchModal />;
 }

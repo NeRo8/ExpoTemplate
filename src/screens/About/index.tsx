@@ -2,10 +2,10 @@ import { View } from 'react-native';
 
 import { CustomText } from '@components/textes/CustomText';
 
-export const AfterSalesScreenPage = () => {
+export const AboutScreen = () => {
   return (
     <View>
-      <CustomText>After Sales Screen</CustomText>
+      <CustomText>About Screen</CustomText>
     </View>
   );
 };

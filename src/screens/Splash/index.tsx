@@ -8,7 +8,7 @@ import { PageContainer } from '@components/containers';
 
 import { icons } from '@constants/icons';
 
-export const SplashScreenPage = () => {
+export const SplashScreen = () => {
   const router = useRouter();
 
   useEffect(() => {

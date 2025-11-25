@@ -4,9 +4,9 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { useNavigation, Link } from 'expo-router';
 import { useStyles } from 'react-native-unistyles';
 
-import ProductsScreenPage from '@screens/ProductsScreenPage';
+import { ProductsScreen } from '@screens/Products';
 
-export default function ProductsScreen() {
+export default function ProductsPage() {
   const { theme } = useStyles();
   const navigation = useNavigation();
 
@@ -24,5 +24,5 @@ export default function ProductsScreen() {
     });
   }, []);
 
-  return <ProductsScreenPage />;
+  return <ProductsScreen />;
 }

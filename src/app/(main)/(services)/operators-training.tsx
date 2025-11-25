@@ -1,5 +1,5 @@
-import { OperatorsScreenPage } from '@screens/OperatorsScreenPage';
+import { OperatorsScreen } from '@screens/Operators';
 
-export default function OperatorsTrainingScreen() {
-  return <OperatorsScreenPage />;
+export default function OperatorsTrainingPage() {
+  return <OperatorsScreen />;
 }

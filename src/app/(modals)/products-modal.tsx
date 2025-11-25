@@ -1,5 +1,5 @@
-import { ProductsScreenModal } from '@screens/(modals)/ProductsScreenModal';
+import { ExploreModal } from '@screens/(modals)/ExploreModal';
 
-export default function ProductsModal() {
-  return <ProductsScreenModal />;
+export default function ExploreModalPage() {
+  return <ExploreModal />;
 }

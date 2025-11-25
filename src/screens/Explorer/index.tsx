@@ -4,7 +4,7 @@ import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import { Header } from './widgets/Header';
 
-export const MainScreenPage = () => {
+export const ExplorerScreen = () => {
   const { styles } = useStyles(stylesheet);
   return (
     <ScrollView contentContainerStyle={styles.contentContainerStyle}>

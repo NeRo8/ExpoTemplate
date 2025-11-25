@@ -1,5 +1,5 @@
-import { SplashScreenPage } from '@screens/SplashScreenPage';
+import { SplashScreen } from '@screens/Splash';
 
-export default function SplashScreen() {
-  return <SplashScreenPage />;
+export default function SplashPage() {
+  return <SplashScreen />;
 }

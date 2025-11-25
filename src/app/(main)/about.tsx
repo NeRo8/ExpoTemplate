@@ -1,10 +1,5 @@
-import { PageContainer } from '@components/containers';
-import { CustomText } from '@components/textes/CustomText';
+import { AboutScreen } from '@screens/About';
 
-export default function AboutScreen() {
-  return (
-    <PageContainer>
-      <CustomText>About</CustomText>
-    </PageContainer>
-  );
+export default function AboutPage() {
+  return <AboutScreen />;
 }

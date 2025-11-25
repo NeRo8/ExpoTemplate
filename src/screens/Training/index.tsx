@@ -2,10 +2,10 @@ import { View } from 'react-native';
 
 import { CustomText } from '@components/textes/CustomText';
 
-export const OperatorsScreenPage = () => {
+export const TrainingScreen = () => {
   return (
     <View>
-      <CustomText>Operators Screen</CustomText>
+      <CustomText>Training Screen</CustomText>
     </View>
   );
 };

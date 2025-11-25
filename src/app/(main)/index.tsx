@@ -1,5 +1,5 @@
-import { MainScreenPage } from '@screens/MainScreenPage';
+import { ExplorerScreen } from '@screens/Explorer';
 
-export default function MainScreen() {
-  return <MainScreenPage />;
+export default function ExplorerPage() {
+  return <ExplorerScreen />;
 }

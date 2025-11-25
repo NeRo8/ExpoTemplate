@@ -13,7 +13,7 @@ import { ProductCategories } from './widgets/ProductCategories';
 import { ProductFilters } from './widgets/ProductFilters';
 import { ProductSubCategories } from './widgets/ProductSubCategories';
 
-export const ProductsScreenModal = () => {
+export const ExploreModal = () => {
   const { styles } = useStyles(stylesheet);
 
   const { top, bottom } = useSafeAreaInsets();
