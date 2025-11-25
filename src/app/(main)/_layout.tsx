@@ -29,7 +29,16 @@ export default function MainLayout() {
           headerShown: true,
         }}
       />
-      <Tabs.Screen name="services" options={{ title: 'Services' }} />
+      <Tabs.Screen
+        name="(services)"
+        options={{
+          title: 'Services',
+          headerShown: true,
+          headerStyle: {
+            backgroundColor: theme.colors.primary,
+          },
+        }}
+      />
       <Tabs.Screen name="about" options={{ title: 'About' }} />
     </Tabs>
   );
