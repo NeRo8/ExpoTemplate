@@ -4,7 +4,7 @@ import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
-import { PageContainer } from '@components/containers';
+import { PageContainer } from '@components/containers/PageContainer';
 
 import { icons } from '@constants/icons';
 

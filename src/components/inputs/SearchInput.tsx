@@ -23,6 +23,8 @@ export const SearchInput = (props: SearchInputProps) => {
         autoFocus={false}
         placeholder="Browse Products ..."
         placeholderTextColor={theme.colors.placeholder}
+        cursorColor={theme.colors.primary}
+        selectionColor={theme.colors.primary}
         style={styles.inputStyle}
         {...props}
       />

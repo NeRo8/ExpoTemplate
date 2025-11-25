@@ -21,6 +21,10 @@ export default function MainLayout() {
         },
         tabBarActiveTintColor: theme.colors.primary,
         tabBarInactiveTintColor: theme.colors.placeholder,
+        tabBarLabelStyle: {
+          fontFamily: theme.fonts.regular,
+          fontSize: theme.fontSizes.xs,
+        },
       }}
     >
       <Tabs.Screen
