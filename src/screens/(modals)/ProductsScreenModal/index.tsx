@@ -1,18 +1,11 @@
-import { useState } from 'react';
+import { ScrollView, View } from 'react-native';
 
-import { ScrollView, TouchableOpacity, View } from 'react-native';
-
-import { Image } from 'expo-image';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import { CustomText } from '@components/textes/CustomText';
 
-import { productFilters } from '@constants/temp';
-
 export const ProductsScreenModal = () => {
   const { styles } = useStyles(stylesheet);
-
-  const [activeCategory, setActiveCategory] = useState<number | null>(null);
 
   return (
     <ScrollView contentContainerStyle={styles.contentContainerStyle}>
@@ -20,37 +13,7 @@ export const ProductsScreenModal = () => {
         <CustomText type="h3" style={styles.categoryTitleStyle}>
           Categories
         </CustomText>
-        <View style={styles.categoryFilterContainerStyle}>
-          {productFilters.map((filter) => {
-            const handlePressCategory = () => setActiveCategory(filter.id);
-            const isActive = activeCategory === filter.id;
-            return (
-              <TouchableOpacity
-                key={filter.id}
-                style={[
-                  styles.filterContainerStyle,
-                  isActive && styles.activeFilterContainerStyle,
-                ]}
-                onPress={handlePressCategory}
-              >
-                <Image
-                  source={filter.image}
-                  style={styles.imageStyle}
-                  contentFit="contain"
-                />
-                <CustomText
-                  type="label"
-                  style={[
-                    styles.titleStyle,
-                    isActive && styles.activeTitleStyle,
-                  ]}
-                >
-                  {filter.title}
-                </CustomText>
-              </TouchableOpacity>
-            );
-          })}
-        </View>
+        <View style={styles.categoryFilterContainerStyle}></View>
       </View>
     </ScrollView>
   );
