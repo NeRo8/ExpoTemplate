@@ -1,20 +1,93 @@
-import { ScrollView, View } from 'react-native';
+import { useState } from 'react';
 
+import { ScrollView } from 'react-native';
+
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
-import { CustomText } from '@components/textes/CustomText';
+import { CustomButton } from '@components/buttons/CustomButton';
+
+import { productCategories } from '@constants/temp';
+
+import { ProductCategories } from './widgets/ProductCategories';
+import { ProductFilters } from './widgets/ProductFilters';
+import { ProductSubCategories } from './widgets/ProductSubCategories';
 
 export const ProductsScreenModal = () => {
   const { styles } = useStyles(stylesheet);
 
+  const { top, bottom } = useSafeAreaInsets();
+
+  const [selectedCategory, setSelectedCategory] = useState('1');
+  const [selectedSubCategory, setSelectedSubCategory] = useState('2');
+  const [selectedFilters, setSelectedFilters] = useState<
+    Record<string, string[]>
+  >({
+    '1': ['2'],
+  });
+
+  const onApplyFilters = () => {
+    console.log(selectedFilters);
+  };
+
+  const subCategories =
+    productCategories.find((category) => category.id === selectedCategory)
+      ?.subCategories || [];
+
+  const filters =
+    subCategories.find((subCategory) => subCategory.id === selectedSubCategory)
+      ?.filters || [];
+
+  const onSelectCategory = (value: string) => {
+    setSelectedCategory(value);
+    setSelectedSubCategory('');
+    setSelectedFilters({});
+  };
+
+  const onSelectSubCategory = (value: string) => {
+    setSelectedSubCategory(value);
+    setSelectedFilters({});
+  };
+
+  const onSelectFilter = (filterId: string, valueIds: string[]) => {
+    setSelectedFilters((prev) => ({
+      ...prev,
+      [filterId]: valueIds,
+    }));
+  };
+
   return (
-    <ScrollView contentContainerStyle={styles.contentContainerStyle}>
-      <View>
-        <CustomText type="h3" style={styles.categoryTitleStyle}>
-          Categories
-        </CustomText>
-        <View style={styles.categoryFilterContainerStyle}></View>
-      </View>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={[
+        styles.contentContainerStyle,
+        { paddingTop: top, paddingBottom: bottom },
+      ]}
+    >
+      <ProductCategories
+        data={productCategories}
+        selectedValue={selectedCategory}
+        onSelect={onSelectCategory}
+      />
+      {selectedCategory && (
+        <ProductSubCategories
+          data={subCategories}
+          selectedValue={selectedSubCategory}
+          onSelect={onSelectSubCategory}
+        />
+      )}
+      {selectedSubCategory && (
+        <ProductFilters
+          data={filters}
+          selectedValues={selectedFilters}
+          setSelectedValues={onSelectFilter}
+        />
+      )}
+      <CustomButton
+        title="Apply Filters"
+        onPress={onApplyFilters}
+        buttonContainerStyle={styles.buttonContainerStyle}
+      />
     </ScrollView>
   );
 };
@@ -25,37 +98,7 @@ const stylesheet = createStyleSheet((theme) => ({
     padding: theme.paddings.md,
     gap: theme.margins.md,
   },
-  categoryFilterContainerStyle: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: theme.margins.md,
-  },
-  filterContainerStyle: {
-    alignItems: 'center',
-    gap: theme.margins.md,
-    borderWidth: 1,
-    borderColor: theme.colors.borders,
-    borderRadius: theme.borderRadius.md,
-    padding: theme.paddings.xxs,
-    width: '30%',
-  },
-  activeFilterContainerStyle: {
-    borderColor: theme.colors.primary,
-    borderWidth: 2,
-  },
-  imageStyle: {
-    width: 60,
-    height: 60,
-  },
-  titleStyle: {
-    textAlign: 'center',
-  },
-  activeTitleStyle: {
-    color: theme.colors.primary,
-    fontWeight: theme.fontWeights.bold,
-  },
-  categoryTitleStyle: {
-    fontWeight: theme.fontWeights.bold,
-    marginBottom: theme.margins.md,
+  buttonContainerStyle: {
+    marginTop: theme.margins.xxl,
   },
 }));

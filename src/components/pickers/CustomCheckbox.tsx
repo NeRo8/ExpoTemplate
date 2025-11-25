@@ -14,7 +14,10 @@ export const CustomCheckbox = (props: CustomCheckboxProps) => {
 
   return (
     <View style={styles.checkboxContainerStyle}>
-      <Checkbox color={theme.colors.primary} {...props} />
+      <Checkbox
+        {...props}
+        color={props.value ? theme.colors.primary : theme.colors.borders}
+      />
       {props.label && <CustomText type="caption">{props.label}</CustomText>}
     </View>
   );
