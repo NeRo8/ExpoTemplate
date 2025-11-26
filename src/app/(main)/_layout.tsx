@@ -61,7 +61,7 @@ export default function MainLayout() {
         }}
       />
       <Tabs.Screen
-        name="about"
+        name="(about)"
         options={{
           title: 'About',
           tabBarIcon: ({ color, size }) => (
