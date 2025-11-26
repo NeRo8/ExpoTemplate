@@ -13,6 +13,15 @@ export default function RootLayout() {
       <Stack
         screenOptions={{
           contentStyle: { backgroundColor: theme.colors.background },
+          headerStyle: {
+            backgroundColor: theme.colors.primary,
+          },
+          headerTintColor: theme.colors.white,
+          headerTitleStyle: {
+            fontFamily: theme.fonts.bold,
+            fontWeight: theme.fontWeights.bold,
+          },
+          headerBackButtonDisplayMode: 'minimal',
         }}
       >
         <Stack.Screen
@@ -25,6 +34,34 @@ export default function RootLayout() {
           name="(main)"
           options={{
             headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="about-us"
+          options={{
+            headerShown: true,
+            headerTitle: 'About Us',
+          }}
+        />
+        <Stack.Screen
+          name="contact-us"
+          options={{
+            headerShown: true,
+            headerTitle: 'Contact Us',
+          }}
+        />
+        <Stack.Screen
+          name="(services)"
+          options={{
+            headerShown: true,
+            headerTitle: 'Our Services',
+          }}
+        />
+        <Stack.Screen
+          name="order/[id]"
+          options={{
+            headerShown: true,
+            headerTitle: 'Order Detail',
           }}
         />
         <Stack.Screen

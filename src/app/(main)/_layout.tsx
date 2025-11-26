@@ -48,24 +48,20 @@ export default function MainLayout() {
         }}
       />
       <Tabs.Screen
-        name="(services)"
+        name="orders"
         options={{
-          title: 'Services',
-          headerShown: true,
-          headerStyle: {
-            backgroundColor: theme.colors.primary,
-          },
+          title: 'Orders',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="settings-outline" color={color} size={size} />
+            <Ionicons name="cart-outline" color={color} size={size} />
           ),
         }}
       />
       <Tabs.Screen
-        name="(about)"
+        name="profile"
         options={{
-          title: 'About',
+          title: 'Profile',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="information-outline" color={color} size={size} />
+            <Ionicons name="person-outline" color={color} size={size} />
           ),
         }}
       />

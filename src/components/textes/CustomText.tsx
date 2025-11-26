@@ -58,7 +58,7 @@ const stylesheet = createStyleSheet((theme) => ({
           fontSize: theme.fontSizes.sm,
         },
         body: {
-          fontSize: theme.fontSizes.md,
+          fontSize: theme.fontSizes.sm,
         },
         caption: {
           fontSize: theme.fontSizes.sm,
