@@ -1,9 +1,9 @@
 import { useLocalSearchParams } from 'expo-router';
 
-import { CustomText } from '@components/textes/CustomText';
+import { OrderScreen } from '@screens/Order';
 
 export default function OrderPage() {
   const { id: _id } = useLocalSearchParams<{ id: string }>();
 
-  return <CustomText>Order Page</CustomText>;
+  return <OrderScreen />;
 }

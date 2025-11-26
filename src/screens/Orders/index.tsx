@@ -1,33 +1,12 @@
-import { FlatList, View } from 'react-native';
+import { FlatList, View, ListRenderItemInfo } from 'react-native';
 
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
+import { Order, ORDERS } from '@constants/orders';
+
 import { OrderItem } from './widgets/OrderItem';
 
-const ORDERS_INFORMATION = [
-  {
-    id: '0000-0000-0000-0000',
-    startedDate: '2025-01-01',
-    endedDate: '2025-01-01',
-    total: '$11000.00',
-    type: 'Rent',
-    products: new Array(4).fill({}).map((_, index) => ({
-      id: index.toString(),
-    })),
-  },
-  {
-    id: '0000-0000-0000-0001',
-    startedDate: '2025-01-01',
-    endedDate: '2025-01-01',
-    total: '$40000.00',
-    type: 'Buy',
-    products: new Array(4).fill({}).map((_, index) => ({
-      id: index.toString(),
-    })),
-  },
-];
-
-const renderItem = ({ item }: { item: any }) => {
+const renderItem = ({ item }: ListRenderItemInfo<Order>) => {
   return <OrderItem {...item} />;
 };
 
@@ -36,7 +15,7 @@ export const OrdersScreen = () => {
   return (
     <View style={styles.containerStyle}>
       <FlatList
-        data={ORDERS_INFORMATION}
+        data={ORDERS}
         renderItem={renderItem}
         contentContainerStyle={styles.contentContainerStyle}
       />

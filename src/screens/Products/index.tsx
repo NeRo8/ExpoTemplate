@@ -1,13 +1,24 @@
-import { ScrollView } from 'react-native';
+import { FlatList } from 'react-native';
 
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
+import { products, Product } from '@constants/product';
+
+import { ProductItem } from './widgets/ProductItem';
+
+const renderItem = ({ item }: { item: Product }) => {
+  return <ProductItem {...item} />;
+};
+
 export const ProductsScreen = () => {
   const { styles } = useStyles(stylesheet);
+
   return (
-    <ScrollView
+    <FlatList
+      data={products}
+      renderItem={renderItem}
       contentContainerStyle={styles.contentContainerStyle}
-    ></ScrollView>
+    />
   );
 };
 

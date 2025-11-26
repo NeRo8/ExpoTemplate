@@ -1,13 +1,18 @@
 import { View } from 'react-native';
 
+import { Image } from 'expo-image';
 import { Link } from 'expo-router';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import { CustomText } from '@components/textes/CustomText';
 
+import { Order } from '@constants/orders';
+
 import { InformationItem } from './InformationItem';
 
-export const OrderItem = (order: any) => {
+interface OrderItemProps extends Order {}
+
+export const OrderItem = (order: OrderItemProps) => {
   const { styles } = useStyles(stylesheet);
   return (
     <View key={order.id} style={styles.containerStyle}>
@@ -20,7 +25,11 @@ export const OrderItem = (order: any) => {
       <View style={styles.productsContainerStyle}>
         {order.products.map((product) => (
           <View key={product.id}>
-            <View style={styles.productImageStyle} />
+            <Image
+              source={{ uri: product.image }}
+              contentFit="contain"
+              style={styles.productImageStyle}
+            />
           </View>
         ))}
       </View>
@@ -66,7 +75,9 @@ const stylesheet = createStyleSheet((theme) => ({
     width: 50,
     height: 50,
     borderRadius: theme.borderRadius.md,
-    backgroundColor: theme.colors.light,
+    backgroundColor: theme.colors.white,
+    borderWidth: 1,
+    borderColor: theme.colors.borders,
   },
   orderDetailsTextStyle: {
     color: theme.colors.primary,
