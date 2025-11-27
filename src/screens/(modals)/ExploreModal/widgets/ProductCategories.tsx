@@ -5,7 +5,7 @@ import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import { CustomText } from '@components/textes/CustomText';
 
-import { ProductCategoryItem } from '@constants/categories';
+import { ProductCategoryItem } from '@constants/temp/categories';
 
 type ProductCategoriesProps = {
   data: ProductCategoryItem[];

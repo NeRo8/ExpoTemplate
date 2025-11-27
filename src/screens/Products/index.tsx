@@ -2,7 +2,7 @@ import { FlatList } from 'react-native';
 
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
-import { products, Product } from '@constants/product';
+import { products, Product } from '@constants/temp/product';
 
 import { ProductItem } from './widgets/ProductItem';
 

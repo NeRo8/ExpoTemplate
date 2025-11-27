@@ -1,7 +1,7 @@
 import { InformationList } from '@components/containers/InformationContainer';
 import { ScrollContainer } from '@components/containers/ScrollContainer';
 
-import { AFTER_SALES_AND_SPARE_PARTS_INFORMATION } from '@constants/textes';
+import { AFTER_SALES_AND_SPARE_PARTS_INFORMATION } from '@constants/temp/textes';
 
 export const AfterSalesScreen = () => {
   return (

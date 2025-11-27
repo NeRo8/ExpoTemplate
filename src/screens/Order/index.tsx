@@ -8,7 +8,7 @@ import { InformationItem } from '@screens/Orders/widgets/InformationItem';
 import { ScrollContainer } from '@components/containers/ScrollContainer';
 import { CustomText } from '@components/textes/CustomText';
 
-import { ORDERS } from '@constants/orders';
+import { ORDERS } from '@constants/temp/orders';
 
 import { OrderedProducts } from './widgets/OrderedProducts';
 

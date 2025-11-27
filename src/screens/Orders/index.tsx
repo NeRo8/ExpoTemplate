@@ -2,7 +2,7 @@ import { FlatList, View, ListRenderItemInfo } from 'react-native';
 
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
-import { Order, ORDERS } from '@constants/orders';
+import { Order, ORDERS } from '@constants/temp/orders';
 
 import { OrderItem } from './widgets/OrderItem';
 

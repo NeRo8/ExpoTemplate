@@ -6,7 +6,7 @@ import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import { CustomText } from '@components/textes/CustomText';
 
-import { Order } from '@constants/orders';
+import { Order } from '@constants/temp/orders';
 
 import { InformationItem } from './InformationItem';
 

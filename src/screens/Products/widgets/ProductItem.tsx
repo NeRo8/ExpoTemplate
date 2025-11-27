@@ -6,7 +6,7 @@ import { createStyleSheet, useStyles } from 'react-native-unistyles';
 import { CustomButton } from '@components/buttons/CustomButton';
 import { CustomText } from '@components/textes/CustomText';
 
-import { Product } from '@constants/product';
+import { Product } from '@constants/temp/product';
 
 interface ProductItemProps extends Product {}
 

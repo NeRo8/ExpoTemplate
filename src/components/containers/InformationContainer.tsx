@@ -1,6 +1,6 @@
 import { InformationItem } from '@components/items/InformationItem';
 
-import { InformationItemType } from '@constants/textes';
+import { InformationItemType } from '@constants/temp/textes';
 
 interface InformationListProps {
   data: InformationItemType[];

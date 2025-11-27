@@ -5,7 +5,7 @@ import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import { CustomText } from '@components/textes/CustomText';
 
-import { Product, products } from '@constants/product';
+import { Product, products } from '@constants/temp/product';
 
 import { ProductItem } from './ProductItem';
 

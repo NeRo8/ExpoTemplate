@@ -1,4 +1,4 @@
-import { Product, products } from './product';
+import { Product, products } from '../temp/product';
 
 export type Order = {
   id: string;

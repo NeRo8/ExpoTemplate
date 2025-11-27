@@ -6,7 +6,7 @@ import { SearchInput } from '@components/inputs/SearchInput';
 import { SegmentControl } from '@components/pickers/SegmentControll';
 import { CustomText } from '@components/textes/CustomText';
 
-import { Product, products } from '@constants/product';
+import { Product, products } from '@constants/temp/product';
 
 import { useSearch } from './hooks/useSearch.hook';
 import { ProductItem } from './widgets/ProductItem';

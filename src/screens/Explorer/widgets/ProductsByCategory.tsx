@@ -5,7 +5,7 @@ import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import { CustomText } from '@components/textes/CustomText';
 
-import { productCategories } from '@constants/categories';
+import { productCategories } from '@constants/temp/categories';
 
 export const ProductsByCategory = () => {
   const { styles } = useStyles(stylesheet);
