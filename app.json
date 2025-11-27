@@ -10,7 +10,10 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.ExpoTemplate"
+      "bundleIdentifier": "com.nero.mobile.dev.expotemplate",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -21,7 +24,7 @@
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "package": "com.anonymous.ExpoTemplate"
+      "package": "com.nero.mobile.dev.expotemplate"
     },
     "web": {
       "output": "static",
@@ -60,6 +63,12 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "a3a0d082-b031-47ff-846d-f34421293501"
+      }
     }
   }
 }

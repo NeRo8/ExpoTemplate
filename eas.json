@@ -1,0 +1,26 @@
+{
+  "cli": {
+    "version": ">= 16.28.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "production": {
+      "node": "20.19.0",
+      "autoIncrement": true,
+      "ios": {
+        "simulator": false,
+        "credentialsSource": "remote"
+      },
+      "android": {
+        "buildType": "app-bundle"
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "ios": {
+        "ascAppId": "6755831848"
+      }
+    }
+  }
+}
