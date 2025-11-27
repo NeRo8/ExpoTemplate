@@ -1,6 +1,7 @@
 import { View } from 'react-native';
 
 import { Link } from 'expo-router';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import { CustomButton } from '@components/buttons/CustomButton';
@@ -10,6 +11,7 @@ import { CustomText } from '@components/textes/CustomText';
 
 export const SignInScreen = () => {
   const { styles } = useStyles(stylesheet);
+  const { bottom } = useSafeAreaInsets();
   return (
     <ScrollContainer>
       <View style={styles.containerStyle}>
@@ -32,14 +34,15 @@ export const SignInScreen = () => {
               Forgot Password?
             </Link>
           </View>
-
-          <CustomText type="body" style={styles.signUpTextStyle}>
-            Don&apos;t have an account?{' '}
-            <Link href="/sign-up" style={styles.signUpLinkStyle}>
-              Sign Up
-            </Link>
-          </CustomText>
         </View>
+      </View>
+      <View style={{ marginBottom: bottom }}>
+        <CustomText type="body" style={styles.signUpTextStyle}>
+          Don&apos;t have an account?{' '}
+          <Link replace href="/sign-up" style={styles.signUpLinkStyle}>
+            Sign Up
+          </Link>
+        </CustomText>
       </View>
     </ScrollContainer>
   );
