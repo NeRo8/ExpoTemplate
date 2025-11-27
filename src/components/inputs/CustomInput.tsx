@@ -6,11 +6,14 @@ import {
   TextInputProps,
   TextStyle,
   View,
+  ViewStyle,
 } from 'react-native';
 
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 interface CustomInputProps extends TextInputProps {
+  containerStyle?: StyleProp<ViewStyle>;
+  inputContainerStyle?: StyleProp<ViewStyle>;
   inputStyle?: StyleProp<TextStyle>;
 }
 
@@ -19,10 +22,11 @@ export const CustomInput = (props: CustomInputProps) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
-    <View style={styles.containerStyle}>
+    <View style={[styles.containerStyle, props.containerStyle]}>
       <View
         style={[
           styles.inputContainerStyle,
+          props.inputContainerStyle,
           isFocused && styles.focusedInputContainerStyle,
         ]}
       >

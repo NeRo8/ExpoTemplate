@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { Image } from 'expo-image';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
-import { CustomButton } from '@components/buttons/CustomButton';
+import { RoundedButton } from '@components/buttons/RoundedButton';
 import { CustomText } from '@components/textes/CustomText';
 
 import { Product } from '@constants/temp/product';
@@ -13,7 +13,13 @@ interface ProductItemProps extends Product {}
 export const ProductItem = (product: ProductItemProps) => {
   const { styles } = useStyles(stylesheet);
 
-  const handleAddToOrder = () => {};
+  const handlePressRent = () => {
+    console.log('Rent');
+  };
+
+  const handlePressBuy = () => {
+    console.log('Buy');
+  };
 
   return (
     <View style={styles.containerStyle}>
@@ -36,16 +42,25 @@ export const ProductItem = (product: ProductItemProps) => {
           </View>
         ))}
       </View>
-
-      <CustomButton title="Add to order" onPress={handleAddToOrder} />
+      <View style={styles.rowStyle}>
+        <RoundedButton
+          title="Rent"
+          type="outline"
+          onPress={handlePressRent}
+          buttonContainerStyle={styles.buttonContainerStyle}
+        />
+        <RoundedButton
+          title="Buy"
+          onPress={handlePressBuy}
+          buttonContainerStyle={styles.buttonContainerStyle}
+        />
+      </View>
     </View>
   );
 };
 
 const stylesheet = createStyleSheet((theme) => ({
   containerStyle: {
-    borderWidth: 1,
-    borderColor: theme.colors.borders,
     borderRadius: theme.borderRadius.md,
     padding: theme.paddings.md,
     backgroundColor: theme.colors.white,
@@ -75,5 +90,12 @@ const stylesheet = createStyleSheet((theme) => ({
     fontWeight: theme.fontWeights.bold,
     fontSize: theme.fontSizes.lg,
     color: theme.colors.primary,
+  },
+  rowStyle: {
+    flexDirection: 'row',
+    gap: theme.margins.md,
+  },
+  buttonContainerStyle: {
+    flex: 1,
   },
 }));

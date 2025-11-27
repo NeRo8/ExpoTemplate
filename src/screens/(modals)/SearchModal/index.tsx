@@ -1,10 +1,13 @@
 import { FlatList, ListRenderItemInfo, View } from 'react-native';
 
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import { SearchInput } from '@components/inputs/SearchInput';
 import { SegmentControl } from '@components/pickers/SegmentControll';
 import { CustomText } from '@components/textes/CustomText';
+
+import { isAndroid } from '@utils/platform';
 
 import { Product, products } from '@constants/temp/product';
 
@@ -17,11 +20,14 @@ const renderItem = ({ item }: ListRenderItemInfo<Product>) => (
 
 export const SearchModal = () => {
   const { styles } = useStyles(stylesheet);
+  const { top } = useSafeAreaInsets();
 
   const { activeId, query, results, data, setQuery, setActiveId } = useSearch();
 
   return (
-    <View style={styles.modalContainerStyle}>
+    <View
+      style={[styles.modalContainerStyle, isAndroid && { paddingTop: top }]}
+    >
       <SegmentControl data={data} activeId={activeId} onPress={setActiveId} />
       <SearchInput value={query} onChangeText={setQuery} />
       <FlatList

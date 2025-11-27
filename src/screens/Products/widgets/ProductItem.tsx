@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { Image } from 'expo-image';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
-import { CustomButton } from '@components/buttons/CustomButton';
+import { RoundedButton } from '@components/buttons/RoundedButton';
 import { CustomText } from '@components/textes/CustomText';
 
 import { Product } from '@constants/temp/product';
@@ -12,6 +12,14 @@ interface ProductItemProps extends Product {}
 
 export const ProductItem = (product: ProductItemProps) => {
   const { styles } = useStyles(stylesheet);
+
+  const handlePressRent = () => {
+    console.log('Rent');
+  };
+
+  const handlePressBuy = () => {
+    console.log('Buy');
+  };
 
   return (
     <View style={styles.containerStyle}>
@@ -29,7 +37,19 @@ export const ProductItem = (product: ProductItemProps) => {
           </CustomText>
         ))}
       </View>
-      <CustomButton title="Add to order" onPress={() => {}} />
+      <View style={styles.rowStyle}>
+        <RoundedButton
+          title="Rent"
+          type="outline"
+          onPress={handlePressRent}
+          buttonContainerStyle={styles.buttonContainerStyle}
+        />
+        <RoundedButton
+          title="Buy"
+          onPress={handlePressBuy}
+          buttonContainerStyle={styles.buttonContainerStyle}
+        />
+      </View>
     </View>
   );
 };
@@ -53,7 +73,6 @@ const stylesheet = createStyleSheet((theme) => ({
   nameStyle: {
     fontWeight: theme.fontWeights.bold,
     fontSize: theme.fontSizes.md,
-    marginVertical: theme.margins.sm,
     color: theme.colors.primary,
   },
   paramStyle: {
@@ -65,5 +84,12 @@ const stylesheet = createStyleSheet((theme) => ({
     fontWeight: theme.fontWeights.medium,
     fontSize: theme.fontSizes.xs,
     color: theme.colors.label,
+  },
+  rowStyle: {
+    flexDirection: 'row',
+    gap: theme.margins.md,
+  },
+  buttonContainerStyle: {
+    flex: 1,
   },
 }));

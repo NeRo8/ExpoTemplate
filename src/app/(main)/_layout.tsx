@@ -2,6 +2,8 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { Tabs } from 'expo-router';
 import { useStyles } from 'react-native-unistyles';
 
+import { CustomTabBar } from '@components/CustomTabBar';
+
 export default function MainLayout() {
   const { theme } = useStyles();
   return (
@@ -26,6 +28,7 @@ export default function MainLayout() {
           fontSize: theme.fontSizes.xs,
         },
       }}
+      tabBar={(props) => <CustomTabBar {...props} />}
     >
       <Tabs.Screen
         name="index"
@@ -48,11 +51,21 @@ export default function MainLayout() {
         }}
       />
       <Tabs.Screen
+        name="cart"
+        options={{
+          title: 'Cart',
+          headerShown: true,
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="cart-outline" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="orders"
         options={{
           title: 'Orders',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="cart-outline" color={color} size={size} />
+            <Ionicons name="receipt-outline" color={color} size={size} />
           ),
         }}
       />
