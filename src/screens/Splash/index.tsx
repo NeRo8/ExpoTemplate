@@ -19,13 +19,15 @@ export const SplashScreen = () => {
   );
 };
 
-const stylesheet = createStyleSheet({
+const stylesheet = createStyleSheet((theme) => ({
   containerStyle: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: theme.colors.white,
   },
   logoStyle: {
     width: 200,
     height: 200,
   },
-});
+}));
