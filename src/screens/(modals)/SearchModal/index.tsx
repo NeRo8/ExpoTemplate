@@ -1,4 +1,4 @@
-import { FlatList, View } from 'react-native';
+import { FlatList, ListRenderItemInfo, View } from 'react-native';
 
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
@@ -6,10 +6,14 @@ import { SearchInput } from '@components/inputs/SearchInput';
 import { SegmentControl } from '@components/pickers/SegmentControll';
 import { CustomText } from '@components/textes/CustomText';
 
+import { Product, products } from '@constants/product';
+
 import { useSearch } from './hooks/useSearch.hook';
 import { ProductItem } from './widgets/ProductItem';
 
-const renderItem = (item: any) => <ProductItem {...item} />;
+const renderItem = ({ item }: ListRenderItemInfo<Product>) => (
+  <ProductItem {...item} />
+);
 
 export const SearchModal = () => {
   const { styles } = useStyles(stylesheet);
@@ -21,7 +25,9 @@ export const SearchModal = () => {
       <SegmentControl data={data} activeId={activeId} onPress={setActiveId} />
       <SearchInput value={query} onChangeText={setQuery} />
       <FlatList
-        data={[]}
+        showsVerticalScrollIndicator={false}
+        numColumns={2}
+        data={products}
         renderItem={renderItem}
         ListHeaderComponent={() =>
           query &&
@@ -37,6 +43,7 @@ export const SearchModal = () => {
           </View>
         )}
         contentContainerStyle={styles.listContentContainerStyle}
+        columnWrapperStyle={styles.columnWrapperStyle}
       />
     </View>
   );
@@ -55,5 +62,9 @@ const stylesheet = createStyleSheet((theme) => ({
   },
   listContentContainerStyle: {
     flexGrow: 1,
+    gap: theme.margins.md,
+  },
+  columnWrapperStyle: {
+    gap: theme.margins.md,
   },
 }));

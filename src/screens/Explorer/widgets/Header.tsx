@@ -2,7 +2,8 @@ import { useEffect } from 'react';
 
 import { View } from 'react-native';
 
-import { useRouter } from 'expo-router';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { Link } from 'expo-router';
 import { useVideoPlayer, VideoView } from 'expo-video';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
@@ -12,9 +13,7 @@ import { CustomText } from '@components/textes/CustomText';
 import { videos } from '@constants/videos';
 
 export const Header = () => {
-  const { styles } = useStyles(stylesheet);
-
-  const router = useRouter();
+  const { styles, theme } = useStyles(stylesheet);
 
   const player = useVideoPlayer(videos.desertBackground, (player) => {
     player.loop = true;
@@ -23,10 +22,6 @@ export const Header = () => {
   useEffect(() => {
     player.play();
   }, [player]);
-
-  const handleFocus = () => {
-    router.push('/search-modal');
-  };
 
   return (
     <View>
@@ -42,10 +37,18 @@ export const Header = () => {
           GATE TO DEVELOPMENT
         </CustomText>
       </CustomText>
-      <SearchInput
-        onFocus={handleFocus}
-        inputContainerStyle={styles.inputContainerStyle}
-      />
+      <View style={styles.headerInputContainerStyle}>
+        <SearchInput inputContainerStyle={styles.searchInputContainerStyle} />
+        <Link href="/(modals)/search-modal">
+          <View style={styles.filterIconContainerStyle}>
+            <Ionicons
+              name="filter-outline"
+              size={24}
+              color={theme.colors.white}
+            />
+          </View>
+        </Link>
+      </View>
     </View>
   );
 };
@@ -70,11 +73,24 @@ const stylesheet = createStyleSheet((theme) => ({
     fontSize: 24,
     color: theme.colors.white,
   },
-  inputContainerStyle: {
-    position: 'absolute',
+  headerInputContainerStyle: {
     zIndex: 100,
+    position: 'absolute',
     bottom: theme.paddings.md,
     left: theme.paddings.md,
     right: theme.paddings.md,
+    flexDirection: 'row',
+    gap: theme.paddings.md,
+  },
+  searchInputContainerStyle: {
+    flex: 1,
+  },
+  filterIconContainerStyle: {
+    backgroundColor: theme.colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: theme.borderRadius.lg,
+    height: 40,
+    width: 40,
   },
 }));

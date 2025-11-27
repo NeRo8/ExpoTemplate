@@ -23,7 +23,6 @@ const stylesheet = createStyleSheet((theme) => ({
     gap: theme.paddings.xs,
   },
   titleStyle: {
-    color: theme.colors.primary,
     fontWeight: theme.fontWeights.bold,
     fontSize: theme.fontSizes.xs,
   },

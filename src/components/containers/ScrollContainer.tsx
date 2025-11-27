@@ -2,13 +2,21 @@ import { PropsWithChildren } from 'react';
 
 import { ScrollView } from 'react-native';
 
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 export const ScrollContainer = ({ children }: PropsWithChildren) => {
   const { styles } = useStyles(stylesheet);
 
+  const { bottom } = useSafeAreaInsets();
+
   return (
-    <ScrollView contentContainerStyle={styles.screenContentContainerStyle}>
+    <ScrollView
+      contentContainerStyle={[
+        styles.screenContentContainerStyle,
+        { paddingBottom: bottom },
+      ]}
+    >
       {children}
     </ScrollView>
   );

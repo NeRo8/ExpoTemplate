@@ -74,8 +74,6 @@ const stylesheet = createStyleSheet((theme) => ({
     height: 200,
     borderRadius: theme.borderRadius.md,
     backgroundColor: theme.colors.white,
-    borderWidth: 1,
-    borderColor: theme.colors.borders,
   },
   productNameStyle: {
     fontWeight: theme.fontWeights.bold,

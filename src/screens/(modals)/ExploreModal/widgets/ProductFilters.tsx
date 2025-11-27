@@ -5,7 +5,7 @@ import { createStyleSheet, useStyles } from 'react-native-unistyles';
 import { CustomCheckbox } from '@components/pickers/CustomCheckbox';
 import { CustomText } from '@components/textes/CustomText';
 
-import { FilterItem } from '@constants/temp';
+import { FilterItem } from '@constants/categories';
 
 type ProductFiltersProps = {
   data: FilterItem[];

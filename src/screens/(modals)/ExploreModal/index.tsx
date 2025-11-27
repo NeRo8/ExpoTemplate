@@ -7,7 +7,7 @@ import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import { CustomButton } from '@components/buttons/CustomButton';
 
-import { productCategories } from '@constants/temp';
+import { productCategories } from '@constants/categories';
 
 import { ProductCategories } from './widgets/ProductCategories';
 import { ProductFilters } from './widgets/ProductFilters';

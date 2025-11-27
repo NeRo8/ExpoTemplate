@@ -97,6 +97,7 @@ const stylesheet = createStyleSheet((theme) => ({
       active: {
         true: {
           color: theme.colors.white,
+          fontWeight: theme.fontWeights.bold,
         },
         false: {
           color: theme.colors.paragraph,
