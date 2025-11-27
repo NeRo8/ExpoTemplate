@@ -11,12 +11,15 @@ import { icons } from '@constants/icons';
 export const SplashScreen = () => {
   const router = useRouter();
 
+  const isAuthorized = false;
+
   useEffect(() => {
     const redirect = setTimeout(() => {
-      router.replace('/(main)');
+      const routeName = isAuthorized ? '/(main)' : '/(auth)';
+      router.replace(routeName);
     }, 1000);
     return () => clearTimeout(redirect);
-  }, [router]);
+  }, [router, isAuthorized]);
 
   const { styles } = useStyles(stylesheet);
 
