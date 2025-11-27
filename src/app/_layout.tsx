@@ -1,11 +1,26 @@
 import '@themes';
 
-import { Stack } from 'expo-router';
+import { useEffect } from 'react';
+
+import { Stack, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useStyles } from 'react-native-unistyles';
 
+import { useIsAuthenticatedSelector } from '@store/AuthStorage';
+
 export default function RootLayout() {
   const { theme } = useStyles();
+  const router = useRouter();
+
+  const isAuthenticated = useIsAuthenticatedSelector();
+
+  useEffect(() => {
+    const redirect = setTimeout(() => {
+      const routeName = isAuthenticated ? '/(main)' : '/(auth)';
+      router.replace(routeName);
+    }, 1000);
+    return () => clearTimeout(redirect);
+  }, [router, isAuthenticated]);
 
   return (
     <>

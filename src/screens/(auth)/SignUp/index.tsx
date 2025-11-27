@@ -9,9 +9,18 @@ import { ScrollContainer } from '@components/containers/ScrollContainer';
 import { CustomInput } from '@components/inputs/CustomInput';
 import { CustomText } from '@components/textes/CustomText';
 
+import { useSetIsAuthenticatedAction } from '@store/AuthStorage';
+
 export const SignUpScreen = () => {
   const { styles } = useStyles(stylesheet);
   const { bottom } = useSafeAreaInsets();
+
+  const setIsAuthenticated = useSetIsAuthenticatedAction();
+
+  const handlePressSignUp = () => {
+    setIsAuthenticated(true);
+  };
+
   return (
     <ScrollContainer>
       <View style={styles.containerStyle}>
@@ -30,7 +39,7 @@ export const SignUpScreen = () => {
               <CustomInput placeholder="Password" />
               <CustomInput placeholder="Confirm Password" />
             </View>
-            <CustomButton title="Sign Up" onPress={() => {}} />
+            <CustomButton title="Sign Up" onPress={handlePressSignUp} />
           </View>
         </View>
       </View>

@@ -4,29 +4,43 @@ import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import { CustomText } from '@components/textes/CustomText';
 
+import { useSetIsAuthenticatedAction } from '@store/AuthStorage';
+
 export const ProfileInformation = () => {
   const { styles } = useStyles(stylesheet);
+
+  const setIsAuthenticated = useSetIsAuthenticatedAction();
+
+  const handlePressLogout = () => {
+    setIsAuthenticated(false);
+  };
+
   return (
     <View style={styles.containerStyle}>
       <View style={styles.profileAvatarStyle}>
         <CustomText style={styles.profileAvatarTextStyle}>JD</CustomText>
       </View>
-      <View style={styles.profileInformationContainerStyle}>
-        <CustomText type="h5" style={styles.profileNameStyle}>
-          John Doe
+      <View style={styles.informationContainerStyle}>
+        <View style={styles.profileInformationContainerStyle}>
+          <CustomText type="h5" style={styles.profileNameStyle}>
+            John Doe
+          </CustomText>
+          <View style={styles.row}>
+            <CustomText type="label" style={styles.labelStyle}>
+              Email:
+            </CustomText>
+            <CustomText type="label">john.doe@example.com</CustomText>
+          </View>
+          <View style={styles.row}>
+            <CustomText type="label" style={styles.labelStyle}>
+              Phone:
+            </CustomText>
+            <CustomText type="label">+1234567890</CustomText>
+          </View>
+        </View>
+        <CustomText style={styles.logoutTextStyle} onPress={handlePressLogout}>
+          Logout
         </CustomText>
-        <View style={styles.row}>
-          <CustomText type="label" style={styles.labelStyle}>
-            Email:
-          </CustomText>
-          <CustomText type="label">john.doe@example.com</CustomText>
-        </View>
-        <View style={styles.row}>
-          <CustomText type="label" style={styles.labelStyle}>
-            Phone:
-          </CustomText>
-          <CustomText type="label">+1234567890</CustomText>
-        </View>
       </View>
     </View>
   );
@@ -67,5 +81,13 @@ const stylesheet = createStyleSheet((theme) => ({
     fontWeight: theme.fontWeights.bold,
     fontSize: theme.fontSizes.xxxl,
     color: theme.colors.primary,
+  },
+  logoutTextStyle: {
+    color: theme.colors.primary,
+    fontWeight: theme.fontWeights.bold,
+    textAlign: 'right',
+  },
+  informationContainerStyle: {
+    justifyContent: 'space-between',
   },
 }));

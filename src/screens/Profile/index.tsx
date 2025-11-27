@@ -13,6 +13,7 @@ export const ProfileScreen = () => {
   const { styles } = useStyles(stylesheet);
 
   const handlePressLogout = () => {};
+
   return (
     <ScrollContainer>
       <ProfileInformation />

@@ -9,9 +9,18 @@ import { ScrollContainer } from '@components/containers/ScrollContainer';
 import { CustomInput } from '@components/inputs/CustomInput';
 import { CustomText } from '@components/textes/CustomText';
 
+import { useSetIsAuthenticatedAction } from '@store/AuthStorage';
+
 export const SignInScreen = () => {
   const { styles } = useStyles(stylesheet);
   const { bottom } = useSafeAreaInsets();
+
+  const setIsAuthenticated = useSetIsAuthenticatedAction();
+
+  const handlePressSignIn = () => {
+    setIsAuthenticated(true);
+  };
+
   return (
     <ScrollContainer>
       <View style={styles.containerStyle}>
@@ -29,7 +38,7 @@ export const SignInScreen = () => {
               <CustomInput placeholder="Email" />
               <CustomInput placeholder="Password" />
             </View>
-            <CustomButton title="Sign In" onPress={() => {}} />
+            <CustomButton title="Sign In" onPress={handlePressSignIn} />
             <Link href="/reset-password" style={styles.forgotPasswordLinkStyle}>
               Forgot Password?
             </Link>

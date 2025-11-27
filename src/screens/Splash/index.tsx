@@ -1,7 +1,4 @@
-import { useEffect } from 'react';
-
 import { Image } from 'expo-image';
-import { useRouter } from 'expo-router';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import { PageContainer } from '@components/containers/PageContainer';
@@ -9,18 +6,6 @@ import { PageContainer } from '@components/containers/PageContainer';
 import { icons } from '@constants/icons';
 
 export const SplashScreen = () => {
-  const router = useRouter();
-
-  const isAuthorized = false;
-
-  useEffect(() => {
-    const redirect = setTimeout(() => {
-      const routeName = isAuthorized ? '/(main)' : '/(auth)';
-      router.replace(routeName);
-    }, 1000);
-    return () => clearTimeout(redirect);
-  }, [router, isAuthorized]);
-
   const { styles } = useStyles(stylesheet);
 
   return (
