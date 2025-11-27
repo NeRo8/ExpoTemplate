@@ -7,8 +7,17 @@ import { Section } from '@components/containers/Section';
 import { CustomInput } from '@components/inputs/CustomInput';
 import { CustomText } from '@components/textes/CustomText';
 
+import { useCartTotalSelector } from '@store/CartStorage';
+
+import { formatPrice } from '@utils/price';
+
+import { OrderedItems } from './widgets/OrderedItems';
+
 export const CartScreen = () => {
   const { styles } = useStyles(stylesheet);
+
+  const cartTotal = useCartTotalSelector();
+
   return (
     <ScrollContainer>
       <Section title="Personal Information">
@@ -40,20 +49,15 @@ export const CartScreen = () => {
           </View>
         </View>
       </Section>
-      <View style={styles.formContainerStyle}>
-        <CustomText type="h5" style={styles.labelStyle}>
-          Order Items
-        </CustomText>
-      </View>
+      <Section title="Ordered Items" isVisible>
+        <OrderedItems />
+      </Section>
       <View style={styles.totalContainerStyle}>
         <CustomText type="h5" style={styles.labelStyle}>
           Order Total
         </CustomText>
         <CustomText type="h5" style={styles.totalStyle}>
-          {Number(100000).toLocaleString('en-US', {
-            style: 'currency',
-            currency: 'USD',
-          })}
+          {formatPrice(cartTotal)}
         </CustomText>
       </View>
     </ScrollContainer>
@@ -61,22 +65,6 @@ export const CartScreen = () => {
 };
 
 const stylesheet = createStyleSheet((theme) => ({
-  containerStyle: {
-    flex: 1,
-    backgroundColor: theme.colors.background,
-  },
-  formContainerStyle: {
-    backgroundColor: theme.colors.white,
-    borderRadius: theme.borderRadius.lg,
-    padding: theme.paddings.md,
-    borderWidth: 1,
-    borderColor: theme.colors.borders,
-    gap: theme.paddings.xxl,
-  },
-  messageInputStyle: {
-    minHeight: 40,
-    height: 100,
-  },
   fieldsContainerStyle: {
     gap: theme.paddings.md,
   },

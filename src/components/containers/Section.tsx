@@ -8,11 +8,16 @@ import { CustomText } from '@components/textes/CustomText';
 
 interface SectionProps extends PropsWithChildren {
   title: string;
+  isVisible?: boolean;
 }
 
-export const Section = ({ children, title }: SectionProps) => {
+export const Section = ({
+  children,
+  title,
+  isVisible = false,
+}: SectionProps) => {
   const { styles } = useStyles(stylesheet);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(isVisible);
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
