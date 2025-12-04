@@ -6,14 +6,22 @@ type AuthStorageState = {
 
 type AuthStorageActions = {
   setIsAuthenticated: (isAuthenticated: boolean) => void;
+  clearAuthStorage: () => void;
 };
 
 type AuthStorage = AuthStorageState & AuthStorageActions;
 
-export const useAuthStorage = create<AuthStorage>((set) => ({
+const initialState: AuthStorageState = {
   isAuthenticated: false,
+};
+
+export const useAuthStorage = create<AuthStorage>((set) => ({
+  ...initialState,
   setIsAuthenticated: (isAuthenticated: boolean) => {
     set({ isAuthenticated });
+  },
+  clearAuthStorage: () => {
+    set({ ...initialState });
   },
 }));
 
@@ -23,4 +31,8 @@ export const useIsAuthenticatedSelector = () => {
 
 export const useSetIsAuthenticatedAction = () => {
   return useAuthStorage((state) => state.setIsAuthenticated);
+};
+
+export const useClearAuthStorageAction = () => {
+  return useAuthStorage((state) => state.clearAuthStorage);
 };

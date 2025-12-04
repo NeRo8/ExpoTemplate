@@ -60,8 +60,9 @@ const stylesheet = createStyleSheet((theme) => ({
   },
   categoriesContainerStyle: {
     flexDirection: 'row',
+    justifyContent: 'center',
     flexWrap: 'wrap',
-    gap: theme.margins.md,
+    gap: theme.margins.sm,
     marginTop: theme.margins.md,
   },
   categoryContainerStyle: {
